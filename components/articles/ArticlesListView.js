@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, Image, Text, View } from 'react-native';
 import { WebBrowser, Icon } from 'expo';
 import Touchable from 'react-native-platform-touchable';
+import {MonoText} from "../StyledText";
 
 export default class ArticlesListView extends React.Component {
   render() {
     return (
       <View>
         <Text style={styles.optionsTitleText}>
-          Resources
+          ArticlesListView
         </Text>
 
         <Touchable
