@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Image, Text, View } from 'react-native';
 import { WebBrowser, Icon } from 'expo';
 import Touchable from 'react-native-platform-touchable';
-import {MonoText} from "../StyledText";
 
 export default class ArticlesListView extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View>
         <Text style={styles.optionsTitleText}>
@@ -36,7 +36,7 @@ export default class ArticlesListView extends React.Component {
         <Touchable
           background={Touchable.Ripple('#ccc', false)}
           style={styles.option}
-          onPress={this._handlePressSlack}>
+          onPress={() => navigate('Home')}>
           <View style={{ flexDirection: 'row' }}>
             <View style={styles.optionIconContainer}>
               <Image

@@ -12,7 +12,7 @@ export default class ArticlesScreen extends React.Component {
       <ScrollView style={styles.container}>
         {/* Go ahead and delete ExpoLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */}
-        <ArticlesListView />
+        <ArticlesListView navigation={this.props.navigation}  />
       </ScrollView>
     );
   }
