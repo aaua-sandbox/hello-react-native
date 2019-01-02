@@ -12,9 +12,27 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+export class HomeScreenHeader extends React.Component {
+  render() {
+    return (
+      <View style={styles.welcomeHeaderContainer}>
+        <Image
+          source={
+            __DEV__
+              ? require('../assets/images/robot-dev.png')
+              : require('../assets/images/robot-prod.png')
+          }
+          style={styles.welcomeHeaderImage}
+        />
+        <Text style={styles.welcomeHeaderText}>THIS APP!!a</Text>
+      </View>
+    );
+  };
+}
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    headerTitle: <HomeScreenHeader />,
   };
 
   render() {
@@ -35,7 +53,7 @@ export default class HomeScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
-            <Text style={styles.getStartedText}>AAABBBCCC Get started by opening</Text>
+            <Text style={styles.getStartedText}>AAABBB Get started by opening</Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
@@ -112,6 +130,17 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+  },
+  welcomeHeaderContainer: {
+    flexDirection: 'row',
+  },
+  welcomeHeaderImage: {
+    width: 50,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  welcomeHeaderText: {
+    color: 'rgba(96,100,109, 0.8)',
   },
   welcomeContainer: {
     alignItems: 'center',

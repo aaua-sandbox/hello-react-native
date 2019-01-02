@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import ArticlesScreen from '../screens/ArticlesScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -21,6 +22,20 @@ HomeStack.navigationOptions = {
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
+    />
+  ),
+};
+
+const ArticlesStack = createStackNavigator({
+  Articles: ArticlesScreen,
+});
+
+ArticlesStack.navigationOptions = {
+  tabBarLabel: 'Articles',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-book' : 'md-book'}
     />
   ),
 };
@@ -55,6 +70,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  ArticlesStack,
   LinksStack,
   SettingsStack,
 });
