@@ -2,27 +2,25 @@ import React from 'react';
 import {StyleSheet, Image, Text, View, ScrollView} from 'react-native';
 import { WebBrowser, Icon } from 'expo';
 import Touchable from 'react-native-platform-touchable';
+import BaseComponent from '../../components/BaseComponent'
 import { Articles } from "../../data/Articles";
 import ArticlesListView from "./ArticlesListView";
 
-export default class ArticleDetailView extends React.Component {
+export default class ArticleDetailView extends BaseComponent {
   render() {
-    console.debug("Render: " + this.constructor.name);
-
     const article = this.props.navigation.state.params;
     const related_articles = this._related_articles(Articles, 5);
-    console.debug(article);
-    console.debug(related_articles);
+
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.optionsTitleText}>
+        <Text style={styles.articleTitle}>
           {article.title}
         </Text>
         <Text style={styles.articleContent}>
           {article.content}
         </Text>
 
-        <Text style={styles.optionsTitleText}>
+        <Text style={styles.articleTitle}>
           元記事
         </Text>
         <Touchable
@@ -45,7 +43,7 @@ export default class ArticleDetailView extends React.Component {
           </View>
         </Touchable>
 
-        <Text style={styles.optionsTitleText}>
+        <Text style={styles.articleTitle}>
           関連記事
         </Text>
         <ArticlesListView navigation={this.props.navigation} articles={related_articles} />
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fdfdfd',
   },
-  optionsTitleText: {
+  articleTitle: {
     fontWeight: 'bold',
     fontSize: 16,
     marginLeft: 15,

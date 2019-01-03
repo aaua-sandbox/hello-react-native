@@ -1,10 +1,9 @@
 import React from 'react';
 import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import BaseComponent from '../../components/BaseComponent'
 
-export default class ArticlesListView extends React.Component {
+export default class ArticlesListView extends BaseComponent {
   render() {
-    console.debug("Render: " + this.constructor.name);
-
     const {navigation, articles} = this.props;
     return (
       <FlatList
@@ -14,7 +13,7 @@ export default class ArticlesListView extends React.Component {
           <TouchableOpacity
             key={item.id}
             style={styles.option}
-            onPress={() => navigation.navigate('ArticleDetail', item)}
+            onPress={() => navigation.push('ArticleDetail', item)}
           >
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>

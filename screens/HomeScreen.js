@@ -11,11 +11,10 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import BaseComponent from '../components/BaseComponent'
 
-export class HomeScreenHeader extends React.Component {
+export class HomeScreenHeader extends BaseComponent {
   render() {
-    console.debug("Render: " + this.constructor.name);
-
     return (
       <View style={styles.welcomeHeaderContainer}>
         <Image
@@ -26,20 +25,18 @@ export class HomeScreenHeader extends React.Component {
           }
           style={styles.welcomeHeaderImage}
         />
-        <Text style={styles.welcomeHeaderText}>THIS APP!!a</Text>
+        <Text style={styles.welcomeHeaderText}>THIS APP!!</Text>
       </View>
     );
   };
 }
 
-export default class HomeScreen extends React.Component {
+export default class HomeScreen extends BaseComponent {
   static navigationOptions = {
     headerTitle: <HomeScreenHeader />,
   };
 
   render() {
-    console.debug("Render: " + this.constructor.name);
-
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
