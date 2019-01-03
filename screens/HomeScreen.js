@@ -14,6 +14,8 @@ import { MonoText } from '../components/StyledText';
 
 export class HomeScreenHeader extends React.Component {
   render() {
+    console.debug("Render: " + this.constructor.name);
+
     return (
       <View style={styles.welcomeHeaderContainer}>
         <Image
@@ -36,6 +38,8 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    console.debug("Render: " + this.constructor.name);
+
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>

@@ -8,6 +8,8 @@ export default class LinksScreen extends React.Component {
   };
 
   render() {
+    console.debug("Render: " + this.constructor.name);
+
     return (
       <ScrollView style={styles.container}>
         {/* Go ahead and delete ExpoLinksView and replace it with your

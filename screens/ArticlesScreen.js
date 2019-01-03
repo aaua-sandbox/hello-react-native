@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
 import ArticlesListView from '../components/articles/ArticlesListView';
+import { Articles } from "../data/Articles";
 
 export default class ArticlesScreen extends React.Component {
   static navigationOptions = {
@@ -8,20 +8,10 @@ export default class ArticlesScreen extends React.Component {
   };
 
   render() {
+    console.debug("Render: " + this.constructor.name);
+
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ArticlesListView navigation={this.props.navigation}  />
-      </ScrollView>
+      <ArticlesListView navigation={this.props.navigation} articles={Articles} />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
