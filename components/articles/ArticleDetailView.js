@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Image, Text, View, ScrollView} from 'react-native';
-import { WebBrowser, Icon } from 'expo';
+import {StyleSheet, Image, Text, View, ScrollView, WebView} from 'react-native';
+import { WebBrowser } from 'expo';
 import Touchable from 'react-native-platform-touchable';
 import BaseComponent from '../../components/BaseComponent'
 import { Articles } from "../../data/Articles";
@@ -16,9 +16,12 @@ export default class ArticleDetailView extends BaseComponent {
         <Text style={styles.articleTitle}>
           {article.title}
         </Text>
-        <Text style={styles.articleContent}>
-          {article.content}
-        </Text>
+
+        <WebView
+          style={styles.articleContent}
+          originWhitelist={['*']}
+          source={{ html: article.content }}
+        />
 
         <Text style={styles.articleTitle}>
           元記事
@@ -74,14 +77,13 @@ export default class ArticleDetailView extends BaseComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
     backgroundColor: '#fdfdfd',
   },
   articleTitle: {
     fontWeight: 'bold',
     fontSize: 16,
     marginLeft: 15,
-    marginTop: 9,
+    marginTop: 24,
     marginBottom: 12,
   },
   optionIconContainer: {
@@ -98,9 +100,10 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   articleContent: {
-    fontSize: 15,
+    // NOTE: 高さの自動調整はwebview内部と連携する必要がある
+    height: 485,
     marginLeft: 15,
+    marginRight: 15,
     marginTop: 9,
-    marginBottom: 12,
   },
 });

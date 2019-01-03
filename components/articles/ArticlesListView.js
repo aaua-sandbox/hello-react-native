@@ -20,12 +20,15 @@ export default class ArticlesListView extends BaseComponent {
                 <Image
                   source={require('../../assets/images/robot-dev.png')}
                   fadeDuration={0}
-                  style={{ width: 20, height: 20 }}
+                  style={{ width: 40, height: 40 }}
                 />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>
                   {item.title}
+                </Text>
+                <Text style={styles.optionText}>
+                  {item.author}
                 </Text>
               </View>
             </View>
