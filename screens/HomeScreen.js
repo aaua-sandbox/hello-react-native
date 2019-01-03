@@ -36,6 +36,19 @@ export default class HomeScreen extends BaseComponent {
     headerTitle: <HomeScreenHeader />,
   };
 
+  _sleep = (waitMsec) => {
+    var startMsec = new Date();
+
+    // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+    while (new Date() - startMsec < waitMsec);
+  };
+
+  constructor(props) {
+    super(props);
+    // NOTE: それっぽく見せるためにpublishした場合では少し待たせる
+    if (__DEV__ == false){ this._sleep(1000); }
+  }
+
   render() {
     return (
       <View style={styles.container}>
