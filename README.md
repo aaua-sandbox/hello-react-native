@@ -1,5 +1,8 @@
 # hello-react-native
 
+## Expo
+[https://expo.io/@aaua/hello-react-native](https://expo.io/@aaua/hello-react-native)
+
 ## Stack
 - [Expo](https://expo.io/)
 - [ReactNative](https://facebook.github.io/react-native/)
@@ -18,6 +21,6 @@ $ yarn start
 ```
 
 
-## refer to
+## Refer to
 - https://expo.io/learn
 - http://tech-blog.rakus.co.jp/entry/2018/03/28/125049
