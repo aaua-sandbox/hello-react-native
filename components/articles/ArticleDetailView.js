@@ -3,13 +3,13 @@ import {StyleSheet, Image, Text, View, ScrollView, WebView} from 'react-native';
 import { WebBrowser } from 'expo';
 import Touchable from 'react-native-platform-touchable';
 import BaseComponent from '../../components/BaseComponent'
-import { Articles } from "../../data/Articles";
 import ArticlesListView from "./ArticlesListView";
+import ArticlesModel from "../../model/ArticlesModel"
 
 export default class ArticleDetailView extends BaseComponent {
   render() {
     const article = this.props.navigation.state.params;
-    const related_articles = this._related_articles(Articles, 5);
+    const related_articles = new ArticlesModel(5);
 
     return (
       <ScrollView style={styles.container}>
@@ -53,21 +53,6 @@ export default class ArticleDetailView extends BaseComponent {
       </ScrollView>
     );
   }
-
-  _related_articles = (array, num) => {
-    let a = array;
-    let t = [];
-    let r = [];
-    let l = a.length;
-    let n = num < l ? num : l;
-    while (n-- > 0) {
-      let i = Math.random() * l | 0;
-      r[n] = t[i] || a[i];
-      --l;
-      t[i] = t[l] || a[l];
-    }
-    return r;
-  };
 
   _handlePressLink = (url) => {
     WebBrowser.openBrowserAsync(url);

@@ -3,12 +3,21 @@ import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity} from 'react-n
 import BaseComponent from '../../components/BaseComponent'
 
 export default class ArticlesListView extends BaseComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navigation: props.navigation,
+      articles: props.articles.get(),
+    };
+  }
+
   render() {
-    const {navigation, articles} = this.props;
+    const {navigation, articles} = this.state;
     return (
       <FlatList
         style={styles.container}
         data={articles}
+        onEndReached={() => this._next()}
         renderItem={({ item }) => (
           <TouchableOpacity
             key={item.id}
@@ -36,6 +45,12 @@ export default class ArticlesListView extends BaseComponent {
         )}
       />
     );
+  }
+
+  _next = () => {
+    this.setState({
+      articles: [...this.state.articles, ...this.props.articles.get()],
+    })
   }
 }
 

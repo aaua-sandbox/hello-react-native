@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseComponent from '../components/BaseComponent'
 import ArticlesListView from '../components/articles/ArticlesListView';
-import { Articles } from "../data/Articles";
+import ArticlesModel from "../model/ArticlesModel"
 
 export default class ArticlesScreen extends BaseComponent {
   static navigationOptions = {
@@ -10,7 +10,7 @@ export default class ArticlesScreen extends BaseComponent {
 
   render() {
     return (
-      <ArticlesListView navigation={this.props.navigation} articles={Articles} />
+      <ArticlesListView navigation={this.props.navigation} articles={new ArticlesModel()} />
     );
   }
 }
