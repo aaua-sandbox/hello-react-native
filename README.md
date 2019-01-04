@@ -1,5 +1,9 @@
 # hello-react-native
 
+## Stack
+- [Expo](https://expo.io/)
+- [ReactNative](https://facebook.github.io/react-native/)
+
 ## Getting Started
 
 on MAC
