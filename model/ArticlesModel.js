@@ -2,6 +2,10 @@ import { Articles } from "../data/Articles";
 
 export default class ArticlesModel {
   constructor(limit = 0) {
+    this._init(limit);
+  }
+
+  _init(limit) {
     this.page = -1;
     this.per = 10;
     this.limit = limit;
@@ -10,6 +14,11 @@ export default class ArticlesModel {
 
   isLoaded() {
     return this.is_loaded
+  }
+
+  refresh() {
+    this._init(this.limit);
+    return this.get();
   }
 
   get() {

@@ -16,4 +16,11 @@ export default class BaseComponent extends React.Component {
       console.debug("  Rendered " + this.constructor.name);
     }
   }
+
+  sleep = (waitMsec) => {
+    var startMsec = new Date();
+
+    // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+    while (new Date() - startMsec < waitMsec);
+  };
 }

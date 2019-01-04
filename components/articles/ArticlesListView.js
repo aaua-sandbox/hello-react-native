@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {StyleSheet, Image, Text, View, FlatList, TouchableOpacity, RefreshControl} from 'react-native';
 import BaseComponent from '../../components/BaseComponent'
 
 export default class ArticlesListView extends BaseComponent {
   constructor(props) {
     super(props);
     this.state = {
+      refreshing: false,
       navigation: props.navigation,
       articles: props.articles.get(),
     };
@@ -18,6 +19,13 @@ export default class ArticlesListView extends BaseComponent {
         style={styles.container}
         data={articles}
         onEndReached={() => this._next()}
+        refreshControl={
+          <RefreshControl
+            colors={["#9Bd35A", "#689F38"]}
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh.bind(this)}
+          />
+        }
         renderItem={({ item }) => (
           <TouchableOpacity
             key={item.id}
@@ -47,10 +55,22 @@ export default class ArticlesListView extends BaseComponent {
     );
   }
 
-  _next = () => {
+  _next() {
     this.setState({
       articles: [...this.state.articles, ...this.props.articles.get()],
-    })
+    });
+  }
+
+  _onRefresh() {
+    this.setState({refreshing: true});
+
+    // NOTE: それっぽく見せるために少し待たせる
+    this.sleep(1000);
+
+    this.setState({
+      refreshing: false,
+      articles: this.props.articles.refresh(),
+    });
   }
 }
 
