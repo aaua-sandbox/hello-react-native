@@ -1,8 +1,8 @@
 import React from 'react';
-import BaseComponent from '../components/BaseComponent'
+import BaseScreen from './BaseScreen'
 import ArticleDetailView from '../components/articles/ArticleDetailView'
 
-export default class ArticleDetailScreen extends BaseComponent {
+export default class ArticleDetailScreen extends BaseScreen {
   static navigationOptions = {
     title: '',
   };

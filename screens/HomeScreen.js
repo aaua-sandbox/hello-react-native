@@ -11,6 +11,7 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import BaseScreen from './BaseScreen'
 import BaseComponent from '../components/BaseComponent'
 
 export class HomeScreenHeader extends BaseComponent {
@@ -31,7 +32,7 @@ export class HomeScreenHeader extends BaseComponent {
   };
 }
 
-export default class HomeScreen extends BaseComponent {
+export default class HomeScreen extends BaseScreen {
   static navigationOptions = {
     headerTitle: <HomeScreenHeader />,
   };

@@ -4,7 +4,7 @@
     タブがスクロールできない？
  */
 import React from 'react';
-import BaseComponent from '../components/BaseComponent'
+import BaseScreen from './BaseScreen'
 import { View, Text, Animated, TouchableOpacity, StyleSheet } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Constants } from 'expo';
@@ -16,7 +16,7 @@ const SecondRoute = () => (
   <View style={[styles.container, { backgroundColor: '#673ab7' }]} />
 );
 
-export default class TabViewExample extends BaseComponent {
+export default class TabViewExample extends BaseScreen {
   static navigationOptions = {
     title: 'react-native-tab-viewのサンプル',
   };

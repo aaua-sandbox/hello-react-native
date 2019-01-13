@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
-import BaseComponent from '../components/BaseComponent'
+import BaseScreen from './BaseScreen'
 
-export default class LinksScreen extends BaseComponent {
+export default class LinksScreen extends BaseScreen {
   static navigationOptions = {
     title: 'Links',
   };

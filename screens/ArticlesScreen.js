@@ -1,9 +1,9 @@
 import React from 'react';
-import BaseComponent from '../components/BaseComponent'
+import BaseScreen from './BaseScreen'
 import ArticlesListView from '../components/articles/ArticlesListView';
 import ArticlesModel from "../model/ArticlesModel"
 
-export default class ArticlesScreen extends BaseComponent {
+export default class ArticlesScreen extends BaseScreen {
   static navigationOptions = {
     title: 'Articles',
   };

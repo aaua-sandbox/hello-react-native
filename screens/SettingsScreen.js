@@ -1,8 +1,8 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
-import BaseComponent from '../components/BaseComponent'
+import BaseScreen from './BaseScreen'
 
-export default class SettingsScreen extends BaseComponent {
+export default class SettingsScreen extends BaseScreen {
   static navigationOptions = {
     title: 'app.json',
   };
